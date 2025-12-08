@@ -1,19 +1,12 @@
-/* DESIGN SYSTEM: COLD AI DARK (Premium SaaS) */
+/* DESIGN SYSTEM: COLD AI ELITE (Centered & Gold) */
 :root {
-  /* Dark Palette based on your logo/screenshot */
-  --bg-body: #050810;       /* Deepest Navy/Black */
-  --bg-card: #0f1522;       /* Slightly lighter for content */
-  --bg-nav:  rgba(5, 8, 16, 0.8); /* Glassmorphism for nav */
-  
-  --text-main: #ffffff;     /* Pure white for readability */
-  --text-muted: #9ca3af;    /* Premium silver/grey */
-  
-  /* The "Cold AI" Gold/Orange Gradient */
-  --accent-gradient: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);
-  --accent-glow: rgba(255, 152, 0, 0.4);
-  
-  --border: #1e293b;        /* Subtle dark borders */
-  --radius: 12px;           /* Modern rounded corners */
+  --bg-body: #050810;       /* Deep Navy */
+  --bg-card: #0f1522;       
+  --text-main: #ffffff;     
+  --text-muted: #94a3b8;    
+  --accent: #FF9800;        /* Gold */
+  --border: #1e293b;
+  --radius: 12px;
 }
 
 body {
@@ -23,123 +16,115 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; /* Crisp text */
 }
 
-/* CONTAINER: The "Search Result" width */
 .container {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 24px;
 }
 
-/* NAV: Minimalist, glass-effect */
+/* NAV: Centered for Landing Page feel */
 nav {
   display: flex;
-  gap: 24px;
-  margin-bottom: 60px;
-  font-size: 14px;
+  justify-content: center; 
+  gap: 32px;
+  margin-bottom: 80px;
+  font-size: 15px;
   font-weight: 500;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
+  letter-spacing: -0.01em;
 }
-nav a { 
-  color: var(--text-muted); 
-  text-decoration: none; 
-  transition: color 0.2s; 
-}
-nav a:hover, nav a.active { 
-  color: #FFB74D; /* Gold hover */
+nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+nav a:hover, nav a.active { color: #fff; }
+
+/* HERO: Centered & Spaced */
+.hero {
+  text-align: center;
+  margin-bottom: 96px; /* Optimized whitespace */
 }
 
 /* TYPOGRAPHY */
-h1 { 
-  font-size: 36px; 
-  font-weight: 700; 
-  letter-spacing: -0.02em; 
-  margin-bottom: 16px;
-  background: linear-gradient(to bottom right, #fff, #ccc);
+h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+/* The Gold Gradient Text */
+.gold-text {
+  background: linear-gradient(135deg, #FFD54F 0%, #FF9800 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
+  display: inline-block; 
 }
 
-h2 { 
-  font-size: 18px; 
-  font-weight: 600; 
-  margin-top: 48px; 
-  margin-bottom: 16px; 
-  color: #fff; 
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.lead {
+  font-size: 20px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px auto; /* Centered with spacing below */
+  line-height: 1.6;
 }
 
-h3 { 
-  font-size: 18px; 
-  font-weight: 600; 
-  margin-bottom: 8px; 
-  color: #fff;
-}
-
-p { 
-  font-size: 16px; 
-  color: var(--text-muted); 
-  margin-bottom: 16px; 
-}
-
-.lead { 
-  font-size: 20px; 
-  color: #d1d5db; 
-  line-height: 1.5; 
-  margin-bottom: 40px; 
-}
-
-/* CARDS: Dark, border-defined, premium feel */
+/* CARDS */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 32px;
   margin-bottom: 24px;
-  transition: transform 0.2s ease, border-color 0.2s;
+  text-align: left; /* Keep cards readable */
 }
 
-.card:hover {
-  border-color: #334155;
-  transform: translateY(-1px);
-}
+h3 { color: #fff; font-size: 18px; margin-bottom: 8px; font-weight: 600; }
+p { color: var(--text-muted); margin-bottom: 0; }
 
-/* BUTTONS: The Gold Gradient from your screenshot */
-.btn {
-  display: inline-block;
-  background: var(--accent-gradient);
-  color: #000; /* Black text on gold for high contrast */
-  padding: 12px 24px;
+/* UTILITY: Email Capture Form Styling */
+.email-capture-wrapper {
+  max-width: 440px;
+  margin: 0 auto;
+  position: relative;
+}
+.email-capture {
+  display: flex;
+  gap: 10px;
+}
+.email-input {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid #334155;
   border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: opacity 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 15px var(--accent-glow);
-}
-.btn:hover { 
-  opacity: 0.9; 
-  box-shadow: 0 6px 20px var(--accent-glow);
-}
-
-/* PRICING SPECIFIC */
-.price-tag { 
-  font-size: 32px; 
-  font-weight: 700; 
-  color: #fff; 
-  margin-bottom: 8px; 
-}
-.price-tag span {
+  padding: 12px 16px;
+  color: #fff;
   font-size: 16px;
-  color: var(--text-muted);
-  font-weight: 400;
+  outline: none;
+  transition: all 0.2s ease;
 }
-
-ul { padding-left: 20px; color: var(--text-muted); margin-bottom: 20px; }
-li { margin-bottom: 8px; }
-strong { color: #fff; }
+.email-input:focus {
+  border-color: #FF9800;
+  background: rgba(255,255,255,0.12);
+}
+.submit-btn {
+  background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 0 24px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.1s, filter 0.2s;
+}
+.submit-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+.status-text {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 14px;
+  letter-spacing: 0.01em;
+}
