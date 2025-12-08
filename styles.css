@@ -1,4 +1,4 @@
-/* DESIGN SYSTEM: COLD AI ELITE (Mobile Optimized) */
+/* DESIGN SYSTEM: COLD AI ELITE (Chunky Inputs & Mobile Fix) */
 :root {
   --bg-body: #050810;       /* Deep Navy */
   --bg-card: #0f1522;       
@@ -17,6 +17,11 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 .container {
@@ -39,7 +44,7 @@ nav {
 nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
 nav a:hover, nav a.active { color: #fff; }
 
-/* HERO - Centered universally */
+/* HERO */
 .hero {
   text-align: center;
   margin-bottom: 80px;
@@ -82,64 +87,40 @@ h1 {
 h3 { color: #fff; font-size: 18px; margin-bottom: 8px; font-weight: 600; }
 p { color: var(--text-muted); margin-bottom: 0; }
 
-/* FORM: Desktop Default */
+/* --- THE CHUNKY FORM ENGINE --- */
+
 .email-capture-wrapper {
-  max-width: 460px;
+  max-width: 500px; /* Slightly wider for the bigger inputs */
   margin: 0 auto;
 }
+
 .email-capture {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  align-items: stretch; /* Ensures button and input are same height */
 }
+
 .email-input {
   flex: 1;
   background: rgba(255,255,255,0.08);
   border: 1px solid #334155;
   border-radius: 8px;
-  padding: 16px; 
+  
+  /* MASSIVE PADDING FOR HEIGHT */
+  padding: 18px 20px; 
+  
   color: #fff;
-  font-size: 16px;
+  font-size: 17px; /* 17px prevents zoom on iPhone */
   outline: none;
   transition: all 0.2s ease;
-  min-width: 0; 
+  min-width: 0;
+  font-family: inherit;
 }
+
 .email-input:focus {
   border-color: #FF9800;
   background: rgba(255,255,255,0.12);
 }
-.submit-btn {
-  background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 0 24px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: transform 0.1s;
-}
-.submit-btn:hover { transform: translateY(-1px); }
 
-/* MOBILE OPTIMIZATION ENGINE */
-@media (max-width: 600px) {
-  h1 { font-size: 38px; }
-  .lead { font-size: 18px; }
-  
-  /* Stack the form vertically on phone */
-  .email-capture {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .email-input {
-    width: 100%;
-    box-sizing: border-box; /* Ensures padding doesn't break width */
-  }
-  .submit-btn {
-    width: 100%;
-    padding: 16px; /* Big touch target */
-  }
-  
-  .container { padding: 30px 20px; }
-  nav { gap: 20px; font-size: 14px; }
-}
+.submit-btn {
+  background: linear-gradient(135deg, #FFB74D 0%,
