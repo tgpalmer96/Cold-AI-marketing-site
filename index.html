@@ -2,121 +2,48 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <title>Cold AI</title>
-  <meta name="description" content="Cold AI is an intelligent outreach engine. It researches prospects and drafts personalised LinkedIn and Email messages, requiring human sign-off before sending.">
+  <title>Cold AI · Autonomous Revenue Infrastructure</title>
+  <meta name="description" content="Cold AI is an autonomous outreach engine. It researches prospects, drafts context-aware messages, and enforces human sign-off before sending.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <style>
-    /* DESIGN SYSTEM: PERPLEXITY / GOOGLE MINIMALISM 
-       - System fonts for speed and familiarity.
-       - Off-black text (#202124) reduces eye strain compared to pure black.
-       - High whitespace density.
-    */
-    :root { 
-      --text-main: #202124; 
-      --text-muted: #5f6368; 
-      --accent: #1a73e8; 
-      --bg: #ffffff; 
-      --divider: #f1f3f4;
-    }
-
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-      line-height: 1.6; 
-      color: var(--text-main); 
-      max-width: 680px; 
-      margin: 0 auto; 
-      padding: 60px 24px; 
-    }
-    
-    /* NAVIGATION: Simple text links */
-    nav { 
-      padding-bottom: 60px; 
-      display: flex; 
-      gap: 28px; 
-      font-size: 14px; 
-      font-weight: 500;
-    }
-    nav a { 
-      color: var(--text-muted); 
-      text-decoration: none; 
-      transition: color 0.2s ease; 
-    }
-    nav a:hover, nav a.active { 
-      color: var(--text-main); 
-    }
-    
-    /* TYPOGRAPHY */
-    h1 { 
-      font-size: 26px; 
-      font-weight: 500; 
-      margin-bottom: 16px; 
-      letter-spacing: -0.03em; 
-    }
-    
-    h2 { 
-      font-size: 13px; 
-      font-weight: 600; 
-      text-transform: uppercase; 
-      letter-spacing: 0.06em; 
-      color: var(--text-muted); 
-      margin-top: 48px; 
-      margin-bottom: 16px; 
-    }
-    
-    p { 
-      font-size: 16px; 
-      margin-bottom: 16px; 
-      color: var(--text-main);
-    }
-    
-    .lead { 
-      font-size: 18px; 
-      color: var(--text-muted); 
-      margin-bottom: 40px; 
-      line-height: 1.5;
-    }
-
-    /* CALL TO ACTION: Subtle text link, not a loud button */
-    .cta {
-      display: inline-block;
-      margin-top: 24px;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .cta:hover { text-decoration: underline; }
-
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="product.html">Product</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="faq.html">FAQ</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="product.html">Product</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
 
-  <main>
-    <h1>Cold AI</h1>
-    <p class="lead">Intelligent outreach engine for LinkedIn and Email. Automated research and drafting with mandatory human sign-off.</p>
-    
-    <h2>Core Concept</h2>
-    <p>Cold AI solves the "spam vs scale" dilemma. It automates the heavy lifting of prospecting—researching targets and drafting context-aware messages—but waits for human approval before sending.</p>
-    <p>This "human-in-the-loop" architecture ensures brand safety while allowing teams to scale personalized outreach.</p>
+    <main>
+      <h1>Autonomous Revenue Infrastructure</h1>
+      <p class="lead">Cold AI is a 100x force-multiplier for your sales team. We deploy agents that research prospects, draft personalised sequences, and ensure you retain sign-off before anything is sent.</p>
+      
+      <a href="https://app.getcoldai.com" class="btn">Get Started</a>
 
-    <h2>Functionality</h2>
-    <p><strong>1. Research.</strong> The engine scans live data sources (news, social activity, funding rounds) to find relevant hooks.</p>
-    <p><strong>2. Drafting.</strong> It constructs messages using your tone of voice, referencing the specific research findings.</p>
-    <p><strong>3. Review.</strong> Messages sit in a queue. You approve, edit, or reject. The system learns from your edits.</p>
+      <h2>The Mechanism</h2>
+      <div class="card">
+        <h3>1. Deep Research</h3>
+        <p>We do not guess. Cold AI agents scrape and analyse live data points (LinkedIn profiles, posts, company news) to construct a mental model of your prospect.</p>
+      </div>
 
-    <h2>Ecosystem</h2>
-    <p>Built API-first for agentic workflows. Integrates seamlessly with Warm AI to capture and convert inbound traffic.</p>
+      <div class="card">
+        <h3>2. Intelligent Drafting</h3>
+        <p>The engine uses this research to draft high-context messages. It avoids generic fluff, referencing specific pain points found in the research.</p>
+      </div>
 
-    <a href="mailto:hello@cold.ai" class="cta">Request Access &rarr;</a>
-  </main>
+      <div class="card">
+        <h3>3. Human-in-the-Loop (HITL)</h3>
+        <p><strong>The Safety Layer.</strong> Pure automation is dangerous. Cold AI queues every message for review. You approve, edit, or reject. We scale your outreach without losing the human touch.</p>
+      </div>
+
+      <h2>Integration</h2>
+      <p>Cold AI is built as infrastructure. Connect via API, or use our <strong>Warm AI</strong> integration to identify website visitors and trigger immediate follow-up sequences.</p>
+    </main>
+  </div>
 
 </body>
 </html>
