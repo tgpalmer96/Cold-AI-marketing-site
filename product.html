@@ -3,105 +3,49 @@
 <head>
   <meta charset="utf-8">
   <title>Product · Cold AI</title>
-  <meta name="description" content="Technical overview of Cold AI capabilities: Signal detection, drafting engine, and Warm AI integration.">
+  <meta name="description" content="How Cold AI works: Live scraping agents, drafting engines, and GDPR-compliant human verification.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <style>
-    /* DESIGN SYSTEM: PERPLEXITY / GOOGLE MINIMALISM */
-    :root { 
-      --text-main: #202124; 
-      --text-muted: #5f6368; 
-      --bg: #ffffff; 
-      --divider: #e0e0e0;
-    }
-
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-      line-height: 1.6; 
-      color: var(--text-main); 
-      max-width: 680px; 
-      margin: 0 auto; 
-      padding: 60px 24px; 
-    }
-    
-    /* NAV */
-    nav { 
-      padding-bottom: 60px; 
-      display: flex; 
-      gap: 28px; 
-      font-size: 14px; 
-      font-weight: 500; 
-    }
-    nav a { 
-      color: var(--text-muted); 
-      text-decoration: none; 
-      transition: color 0.2s; 
-    }
-    nav a:hover, nav a.active { color: var(--text-main); }
-    
-    /* CONTENT */
-    h1 { 
-      font-size: 26px; 
-      font-weight: 500; 
-      margin-bottom: 32px; 
-      letter-spacing: -0.03em; 
-    }
-    
-    h2 { 
-      font-size: 18px; 
-      font-weight: 500; 
-      margin-top: 48px; 
-      margin-bottom: 12px; 
-      color: var(--text-main);
-    }
-    
-    p { 
-      font-size: 16px; 
-      margin-bottom: 16px; 
-      color: var(--text-muted); 
-    }
-    
-    /* High-contrast bold for skimmability */
-    strong { color: var(--text-main); font-weight: 600; }
-    
-    ul { padding-left: 20px; margin-bottom: 24px; color: var(--text-muted); }
-    li { margin-bottom: 8px; font-size: 16px; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="product.html" class="active">Product</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="faq.html">FAQ</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html" class="active">Product</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
 
-  <main>
-    <h1>Capabilities</h1>
+    <main>
+      <h1>The Engine</h1>
+      <p class="lead">Cold AI is not a template tool. It is an agentic workflow that mimics the behaviour of an elite SDR.</p>
 
-    <h2>Signal Detection</h2>
-    <p>Cold AI avoids static templates by querying live data sources before drafting. The engine identifies specific triggers to ensure relevance:</p>
-    <ul>
-      <li><strong>Corporate News:</strong> Recent funding, acquisitions, or product launches.</li>
-      <li><strong>Social Activity:</strong> Recent LinkedIn posts or comments by the prospect.</li>
-      <li><strong>Hiring Trends:</strong> Open roles that indicate specific operational needs.</li>
-    </ul>
+      <h2>1. Live Data Acquisition</h2>
+      <p>Unlike database tools that rely on stale data, Cold AI utilizes enterprise-grade APIs to access live profile information. We analyse:</p>
+      <ul>
+        <li><strong>Profile Data:</strong> Job history, skills, and bio context.</li>
+        <li><strong>Activity Signals:</strong> Recent posts, comments, and shared content.</li>
+        <li><strong>Company Context:</strong> Hiring trends and recent news.</li>
+      </ul>
 
-    <h2>Drafting Engine</h2>
-    <p>The system utilizes these signals to construct a draft. It prioritizes brevity and context over persuasive sales language. The output is placed in a review queue, ensuring no hallucinations reach the prospect.</p>
+      <h2>2. Drafting & Synthesis</h2>
+      <p>Our LLM pipeline synthesizes this data to create a "Hook." The message is drafted to sound like you—direct, low-friction, and relevant.</p>
 
-    <h2>Human Verification</h2>
-    <p><strong>The Safety Layer.</strong> Pure automation carries brand risk. Cold AI inserts a mandatory human checkpoint. A user must review and approve the drafted message. This ensures 100% brand safety while maintaining the speed of AI generation.</p>
+      <h2>3. The Sign-Off Interface</h2>
+      <div class="card">
+        <h3>Brand Safety</h3>
+        <p>Your reputation is the asset. Cold AI creates a queue of drafts. A human reviewer can scan, edit, and click "Approve" in seconds. This allows one person to manage the volume of 10 SDRs while maintaining 100% quality control.</p>
+      </div>
 
-    <h2>Warm AI Integration</h2>
-    <p>Warm AI is a companion integration that sits on your marketing site.</p>
-    <ul>
-      <li><strong>Identification:</strong> It deanonymizes companies visiting your site.</li>
-      <li><strong>Conversion:</strong> High-intent visitors are pushed directly into Cold AI sequences for immediate, context-aware follow-up.</li>
-    </ul>
-  </main>
+      <h2>Compliance & Security</h2>
+      <p>Cold AI is GDPR compliant and built on secure, enterprise-grade infrastructure. We process business data for legitimate interest and retain strict data minimization policies.</p>
+
+      <h2>Warm AI (Integration)</h2>
+      <p>Warm AI identifies companies visiting your website. It feeds these high-intent signals directly into Cold AI, allowing you to trigger outbound sequences to companies that are already researching you.</p>
+    </main>
+  </div>
 
 </body>
 </html>
