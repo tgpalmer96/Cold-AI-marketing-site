@@ -2,10 +2,62 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <title>Cold AI · Autonomous Revenue Infrastructure</title>
-  <meta name="description" content="Cold AI is an autonomous outreach engine. It researches prospects, drafts context-aware messages, and enforces human sign-off before sending.">
+  <title>Cold AI</title>
+  <meta name="description" content="Autonomous revenue infrastructure. Psychographic profiling and automated execution for B2B revenue teams.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* UTILITY: Email Capture Form */
+    .email-capture-wrapper {
+      max-width: 460px;
+      margin: 40px auto 16px auto;
+      position: relative;
+    }
+    .email-capture {
+      display: flex;
+      gap: 10px;
+    }
+    .email-input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .email-input:focus {
+      border-color: #FF9800;
+      background: rgba(255,255,255,0.12);
+    }
+    .email-input::placeholder {
+      color: #64748b;
+    }
+    .submit-btn {
+      background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 0 24px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.1);
+    }
+    .status-text {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 12px;
+      letter-spacing: 0.02em;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,29 +71,40 @@
     </nav>
 
     <main>
-      <h1>Autonomous Revenue Infrastructure</h1>
-      <p class="lead">Cold AI is a 100x force-multiplier for your sales team. We deploy agents that research prospects, draft personalised sequences, and ensure you retain sign-off before anything is sent.</p>
-      
-      <a href="https://app.getcoldai.com" class="btn">Get Started</a>
+      <div class="hero">
+        <h1>
+          Autonomous Revenue<br>
+          <span class="gold-text">Infrastructure</span>
+        </h1>
+        <p class="lead">
+          We deploy agents. They research. They profile. They execute.
+          <br>
+          The first autonomous engine built on behavioral intelligence.
+        </p>
+        
+        <div class="email-capture-wrapper">
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="email-capture">
+            <input type="email" name="email" class="email-input" placeholder="work@company.com" required>
+            <button type="submit" class="submit-btn">Request Access</button>
+          </form>
+          <div class="status-text">Limited intake. Corporate email required.</div>
+        </div>
+      </div>
 
-      <h2>The Mechanism</h2>
       <div class="card">
         <h3>1. Deep Research</h3>
-        <p>We do not guess. Cold AI agents scrape and analyse live data points (LinkedIn profiles, posts, company news) to construct a mental model of your prospect.</p>
+        <p>Static databases are dead. Cold AI agents scrape live data points. We map the prospect's recent activity. We find the signal in the noise.</p>
       </div>
 
       <div class="card">
-        <h3>2. Intelligent Drafting</h3>
-        <p>The engine uses this research to draft high-context messages. It avoids generic fluff, referencing specific pain points found in the research.</p>
+        <h3>2. Psychographic Profiling</h3>
+        <p>We do not use templates. The engine analyses the prospect's tone and digital footprint. It constructs a message calibrated to their specific psychological profile.</p>
       </div>
 
       <div class="card">
-        <h3>3. Human-in-the-Loop (HITL)</h3>
-        <p><strong>The Safety Layer.</strong> Pure automation is dangerous. Cold AI queues every message for review. You approve, edit, or reject. We scale your outreach without losing the human touch.</p>
+        <h3>3. Authority Protocol</h3>
+        <p>The system drafts. The system queues. You retain executive sign-off. We scale your output without diluting your authority.</p>
       </div>
-
-      <h2>Integration</h2>
-      <p>Cold AI is built as infrastructure. Connect via API, or use our <strong>Warm AI</strong> integration to identify website visitors and trigger immediate follow-up sequences.</p>
     </main>
   </div>
 
