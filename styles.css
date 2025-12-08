@@ -1,0 +1,81 @@
+/* DESIGN SYSTEM: COLD AI (Perplexity/RB2B Hybrid) */
+:root {
+  --bg-body: #f9f9fa;       /* Very subtle grey, not stark white */
+  --bg-card: #ffffff;       /* Pure white for content */
+  --text-main: #111827;     /* Sharp, deep black */
+  --text-muted: #6b7280;    /* Premium grey */
+  --accent: #2563eb;        /* Enterprise Blue (RB2B/LinkedIn style) */
+  --border: #e5e7eb;        /* Subtle borders */
+  --radius: 8px;            /* Clean corners */
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --font-main: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CONTAINER: The "Google Search Result" width */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* NAV: Simple, top-aligned, text-based */
+nav {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 60px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+nav a:hover, nav a.active { color: var(--text-main); }
+
+/* TYPOGRAPHY */
+h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 16px; }
+h2 { font-size: 18px; font-weight: 600; margin-top: 40px; margin-bottom: 12px; color: var(--text-main); }
+h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+p { font-size: 16px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
+.lead { font-size: 20px; color: var(--text-muted); line-height: 1.5; font-weight: 400; margin-bottom: 40px; }
+
+/* CARDS: The "Dashboard" look */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  background-color: var(--text-main);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.9; }
+
+/* LISTS */
+ul { padding-left: 20px; color: var(--text-muted); margin-bottom: 20px; }
+li { margin-bottom: 8px; }
+
+/* PRICING SPECIFIC */
+.price-tag { font-size: 24px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+.price-meta { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
