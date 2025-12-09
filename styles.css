@@ -1,4 +1,4 @@
-/* DESIGN SYSTEM: COLD AI ELITE (Chunky Inputs & Mobile Fix) */
+/* DESIGN SYSTEM: COLD AI ELITE (Refined Mobile & Cards) */
 :root {
   --bg-body: #050810;       /* Deep Navy */
   --bg-card: #0f1522;       
@@ -20,9 +20,7 @@ body {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+*, *:before, *:after { box-sizing: inherit; }
 
 .container {
   max-width: 800px;
@@ -30,7 +28,7 @@ body {
   padding: 40px 24px;
 }
 
-/* NAV */
+/* NAV - OPTIMIZED FOR MOBILE */
 nav {
   display: flex;
   justify-content: center; 
@@ -45,10 +43,7 @@ nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s;
 nav a:hover, nav a.active { color: #fff; }
 
 /* HERO */
-.hero {
-  text-align: center;
-  margin-bottom: 80px;
-}
+.hero { text-align: center; margin-bottom: 80px; }
 
 /* TYPOGRAPHY */
 h1 {
@@ -64,6 +59,17 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block; 
+}
+
+/* THE "100x" LEVERAGE TEXT */
+.huge-text {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 24px 0;
+  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lead {
@@ -82,45 +88,92 @@ h1 {
   padding: 32px;
   margin-bottom: 24px;
   text-align: left;
+  transition: transform 0.2s;
+}
+
+/* Make product cards hoverable */
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: #334155;
+}
+
+/* PRICING POP */
+.card-featured {
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.05);
 }
 
 h3 { color: #fff; font-size: 18px; margin-bottom: 8px; font-weight: 600; }
 p { color: var(--text-muted); margin-bottom: 0; }
 
-/* --- THE CHUNKY FORM ENGINE --- */
-
-.email-capture-wrapper {
-  max-width: 500px; /* Slightly wider for the bigger inputs */
-  margin: 0 auto;
-}
-
-.email-capture {
-  display: flex;
-  gap: 12px;
-  align-items: stretch; /* Ensures button and input are same height */
-}
+/* FORM & BUTTONS */
+.email-capture-wrapper { max-width: 500px; margin: 0 auto; }
+.email-capture { display: flex; gap: 12px; align-items: stretch; }
 
 .email-input {
   flex: 1;
   background: rgba(255,255,255,0.08);
   border: 1px solid #334155;
   border-radius: 8px;
-  
-  /* MASSIVE PADDING FOR HEIGHT */
   padding: 18px 20px; 
-  
   color: #fff;
-  font-size: 17px; /* 17px prevents zoom on iPhone */
+  font-size: 17px;
   outline: none;
-  transition: all 0.2s ease;
   min-width: 0;
   font-family: inherit;
 }
-
-.email-input:focus {
-  border-color: #FF9800;
-  background: rgba(255,255,255,0.12);
-}
+.email-input:focus { border-color: #FF9800; background: rgba(255,255,255,0.12); }
 
 .submit-btn {
-  background: linear-gradient(135deg, #FFB74D 0%,
+  background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 0 32px; 
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 60px; 
+}
+.submit-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+
+/* BOTTOM CTA BUTTON */
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #334155;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 40px;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  border-color: #FF9800;
+  color: #FF9800;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  h1 { font-size: 42px; }
+  .huge-text { font-size: 48px; }
+  .lead { font-size: 18px; }
+  
+  /* NAV FIX: Tighter gap and smaller font to fit on one line */
+  nav { 
+    gap: 14px; 
+    font-size: 13px; 
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Stack form vertically */
+  .email-capture { flex-direction: column; gap: 16px; }
+  .email-input { width: 100%; font-size: 18px; padding: 20px; }
+  .submit-btn { width: 100%; padding: 20px; font-size: 18px; }
+  
+  .container { padding: 30px 20px; }
+}
