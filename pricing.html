@@ -3,9 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>Pricing · Cold AI</title>
-  <meta name="description" content="Cold AI Pricing. Free, Pro, and Team tiers. API Usage pricing.">
+  <meta name="description" content="Cold AI Pricing. Free, Pro, and Team tiers.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Local override for price tag to make it pop */
+    .price-tag { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .price-sub { font-size: 16px; font-weight: 400; color: #64748b; }
+    .plan-list { padding-left: 0; list-style: none; margin: 0; color: #94a3b8; }
+    .plan-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+    .plan-list li::before { content: "✓"; color: #FF9800; margin-right: 12px; font-weight: bold; }
+  </style>
 </head>
 <body>
 
@@ -19,12 +27,15 @@
     </nav>
 
     <main>
-      <h1>Pricing</h1>
+      <div class="hero">
+        <h1>Pricing</h1>
+        <p class="lead">Simple subscriptions. Elastic scale.</p>
+      </div>
       
       <div class="card">
         <h3>Free</h3>
-        <div class="price-tag">£0 <span style="font-size:16px; font-weight:400; color:#666;">/ month</span></div>
-        <ul>
+        <div class="price-tag">£0 <span class="price-sub">/ month</span></div>
+        <ul class="plan-list">
           <li>1 User</li>
           <li>1 LinkedIn Profile</li>
           <li>1 AI Message / Day</li>
@@ -32,10 +43,13 @@
         </ul>
       </div>
 
-      <div class="card" style="border-color: #fff;">
-        <h3>Pro</h3>
-        <div class="price-tag">£149 <span style="font-size:16px; font-weight:400; color:#666;">/ seat / month</span></div>
-        <ul>
+      <div class="card card-featured">
+        <h3 style="color: #FF9800; display: flex; justify-content: space-between;">
+          Pro 
+          <span style="font-size: 12px; background: rgba(255,152,0,0.2); padding: 4px 8px; border-radius: 4px; color: #FF9800;">POPULAR</span>
+        </h3>
+        <div class="price-tag">£149 <span class="price-sub">/ seat / month</span></div>
+        <ul class="plan-list">
           <li>Full AI Messaging</li>
           <li>Sequence Builder</li>
           <li>Inbox Summaries & Analytics</li>
@@ -45,9 +59,9 @@
 
       <div class="card">
         <h3>Team</h3>
-        <div class="price-tag">£399 <span style="font-size:16px; font-weight:400; color:#666;">/ month</span></div>
+        <div class="price-tag">£399 <span class="price-sub">/ month</span></div>
         <p style="font-size: 14px; color: #64748b; margin-bottom: 16px;">Includes 3 seats. Extra seats £99 each.</p>
-        <ul>
+        <ul class="plan-list">
           <li>Shared templates</li>
           <li>Team Analytics</li>
           <li>Warm AI Integration</li>
@@ -55,20 +69,14 @@
         </ul>
       </div>
 
-      <h2>Usage Tokens</h2>
-      <p>Pay-as-you-go. Used for generation and rewrites.</p>
-      <ul>
-        <li><strong>1M Tokens:</strong> £39</li>
-        <li><strong>5M Tokens:</strong> £149</li>
-        <li><strong>20M Tokens:</strong> £499</li>
-      </ul>
+      <div style="margin-top: 80px; text-align: center; border-top: 1px solid #1e293b; padding-top: 40px;">
+        <h3 style="color: #fff; margin-bottom: 16px;">Usage Tokens</h3>
+        <p style="margin-bottom: 8px;">Pay-as-you-go for generation & rewrites.</p>
+        <p style="color: #FF9800; font-weight: 500;">
+          1M Tokens: £39 &nbsp;·&nbsp; 5M Tokens: £149 &nbsp;·&nbsp; 20M Tokens: £499
+        </p>
+      </div>
 
-      <h2>API & Agents</h2>
-      <p>Programmatic access.</p>
-      <ul>
-        <li><strong>Input:</strong> £25 per 1M tokens</li>
-        <li><strong>Output:</strong> £59 per 1M tokens</li>
-      </ul>
     </main>
   </div>
 
