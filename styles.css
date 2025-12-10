@@ -83,7 +83,7 @@ h1 {
 /* CARDS */
 .card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1.3px solid var(--border);
   border-radius: var(--radius);
   padding: 26px;
   margin-bottom: 18px;
