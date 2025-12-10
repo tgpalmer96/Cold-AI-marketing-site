@@ -85,9 +85,9 @@ h1 {
   background: var(--bg-card);
   border: 1.3px solid var(--border);
   border-radius: var(--radius);
-  padding: 22px;
-  margin-bottom: 16px;
-  top: 16px;
+  padding: 24px;
+  margin-bottom: 18px;
+  margin-top: 18px;
   text-align: left;
   transition: transform 0.2s;
 }
