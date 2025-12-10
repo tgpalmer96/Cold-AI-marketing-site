@@ -25,7 +25,7 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 35px 21px;
 }
 
 /* NAV - OPTIMIZED FOR MOBILE */
@@ -85,8 +85,8 @@ h1 {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 32px;
-  margin-bottom: 24px;
+  padding: 27px;
+  margin-bottom: 18px;
   text-align: left;
   transition: transform 0.2s;
 }
