@@ -43,7 +43,7 @@ nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s;
 nav a:hover, nav a.active { color: #fff; }
 
 /* HERO */
-.hero { text-align: center; margin-bottom: 80px; }
+.hero { text-align: center; margin-bottom: 32px; }
 
 /* TYPOGRAPHY */
 h1 {
