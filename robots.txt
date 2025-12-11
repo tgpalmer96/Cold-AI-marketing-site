@@ -25,4 +25,4 @@ User-agent: FacebookBot
 Disallow:
 
 # Point bots to the sitemap
-Sitemap: https://cold.ai/sitemap.xml
+Sitemap: https://getcoldai.com/sitemap.xml
