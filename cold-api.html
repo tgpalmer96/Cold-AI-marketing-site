@@ -1,540 +1,304 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Cold API – Intelligent Prospecting Infrastructure</title>
-
   <meta name="description" content="Programmatic access to Cold’s LinkedIn-native outbound engine. Built for developers, growth teams, and platforms embedding true AI prospecting.">
-
   
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
-
   <style>
-
     :root {
-
       /* Enterprise Dark Palette */
-
-      --bg: #030712;         /* Richer, deeper black/blue */
-
-      --bg-surface: #0f172a; /* Slate 900 */
-
-      --fg: #f8fafc;         /* Slate 50 */
-
-      --fg-muted: #94a3b8;   /* Slate 400 */
-
-      --border: #1e293b;     /* Slate 800 */
-
-      --accent: #f59e0b;     /* Amber */
-
+      --bg: #030712;         
+      --bg-surface: #0f172a; 
+      --fg: #f8fafc;         
+      --fg-muted: #94a3b8;   
+      --border: #1e293b;     
+      --accent: #f59e0b;     
       --accent-glow: rgba(245, 158, 11, 0.15);
-
       --code-bg: #0d1117;
-
       
-
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
       --radius: 12px;
-
       --max-width: 1200px;
-
     }
-
-
 
     * { box-sizing: border-box; }
 
-
-
     html { scroll-behavior: smooth; }
 
-
-
     body {
-
       margin: 0;
-
       background-color: var(--bg);
-
       color: var(--fg);
-
       font-family: var(--font-sans);
-
       -webkit-font-smoothing: antialiased;
-
       line-height: 1.6;
-
-      /* Subtle noise texture for premium feel */
-
       background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg) 50%);
-
+      overflow-x: hidden; /* Prevents horizontal scrollbar on mobile */
     }
-
-
 
     /* --- Typography Utilities --- */
-
     h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; }
-
     
-
     h1 {
-
       font-size: 3.5rem;
-
       line-height: 1.1;
-
       font-weight: 700;
-
       background: linear-gradient(to right, #fff, #94a3b8);
-
       -webkit-background-clip: text;
-
       -webkit-text-fill-color: transparent;
-
     }
-
-
 
     h2 { font-size: 2.25rem; font-weight: 600; margin-bottom: 1rem; }
-
     h3 { font-size: 1.25rem; font-weight: 500; color: #fff; }
-
     p { color: var(--fg-muted); font-size: 1.05rem; }
-
     
-
     a { color: var(--fg); text-decoration: none; transition: 0.2s; }
-
     a:hover { color: var(--accent); }
 
-
-
     /* --- Layout --- */
-
     .container {
-
       width: 100%;
-
       max-width: var(--max-width);
-
       margin: 0 auto;
-
       padding: 0 1.5rem;
-
     }
-
-
 
     /* --- Navigation --- */
-
     nav {
-
       position: sticky;
-
       top: 0;
-
       z-index: 100;
-
       border-bottom: 1px solid rgba(255,255,255,0.05);
-
       background: rgba(3, 7, 18, 0.7);
-
       backdrop-filter: blur(12px);
-
       padding: 1rem 0;
-
     }
-
     
-
     .nav-inner {
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
     }
-
-
 
     .nav-links a {
-
       margin-left: 2rem;
-
       font-size: 0.9rem;
-
       font-weight: 500;
-
       color: var(--fg-muted);
-
     }
-
     .nav-links a:hover { color: #fff; }
-
     
-
     .nav-cta {
-
       background: rgba(255,255,255,0.1);
-
       padding: 0.5rem 1rem;
-
       border-radius: 6px;
-
       border: 1px solid rgba(255,255,255,0.1);
-
     }
-
     .nav-cta:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
 
-
-
     /* --- Hero Section --- */
-
     .hero {
-
       padding: 6rem 0;
-
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 4rem;
-
       align-items: center;
-
     }
-
-
 
     .hero-content { max-width: 540px; }
-
     
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
 
     .badge {
-
       display: inline-block;
-
       padding: 0.25rem 0.75rem;
-
       background: rgba(245, 158, 11, 0.1);
-
       color: var(--accent);
-
       border: 1px solid rgba(245, 158, 11, 0.2);
-
       border-radius: 100px;
-
       font-size: 0.8rem;
-
       font-weight: 500;
-
       margin-bottom: 1.5rem;
-
     }
-
-
 
     .hero-stats {
-
       margin-top: 2rem;
-
       display: flex;
-
       gap: 2rem;
-
       border-top: 1px solid var(--border);
-
       padding-top: 1.5rem;
-
     }
-
     .stat strong { display: block; color: #fff; font-size: 1.2rem; }
-
     .stat span { font-size: 0.85rem; color: var(--fg-muted); }
 
-
-
-    /* --- Code Snippet (The Enterprise Touch) --- */
-
+    /* --- Code Snippet --- */
     .code-window {
-
       background: var(--code-bg);
-
       border: 1px solid var(--border);
-
       border-radius: var(--radius);
-
       box-shadow: 0 20px 50px -10px rgba(0,0,0,0.5);
-
       overflow: hidden;
-
       font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
-
       font-size: 0.85rem;
-
     }
-
     .code-header {
-
       padding: 0.75rem 1rem;
-
       background: rgba(255,255,255,0.03);
-
       border-bottom: 1px solid var(--border);
-
       display: flex;
-
       gap: 6px;
-
     }
-
     .dot { width: 10px; height: 10px; border-radius: 50%; background: #334155; }
-
     .dot.red { background: #ef4444; }
-
     .dot.yellow { background: #f59e0b; }
-
     .dot.green { background: #22c55e; }
-
     
-
     .code-body { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; }
-
     .c-k { color: #c678dd; } /* Keyword */
-
     .c-s { color: #98c379; } /* String */
-
     .c-f { color: #61afef; } /* Function */
-
     .c-c { color: #5c6370; font-style: italic; } /* Comment */
 
-
-
     /* --- Sections --- */
-
     .section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-
     
-
-    /* --- Grid Cards (Bento style) --- */
-
-    .grid-3 {
-
+    /* Replaces inline style for the feature split section */
+    .feature-split {
       display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-      gap: 1.5rem;
-
-      margin-top: 3rem;
-
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
-
-
+    
+    /* --- Grid Cards --- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
 
     .card {
-
       background: var(--bg-surface);
-
       border: 1px solid var(--border);
-
       border-radius: var(--radius);
-
       padding: 2rem;
-
       transition: all 0.3s ease;
-
       position: relative;
-
       overflow: hidden;
-
     }
-
-
 
     .card:hover {
-
       border-color: #334155;
-
       transform: translateY(-2px);
-
       box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
-
     }
-
     
-
     .card::before {
-
       content: '';
-
       position: absolute;
-
       top: 0; left: 0; right: 0; height: 1px;
-
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-
       opacity: 0;
-
       transition: opacity 0.3s;
-
     }
-
     .card:hover::before { opacity: 1; }
 
-
-
     /* --- Feature List --- */
-
     .feature-list {
-
       list-style: none;
-
       padding: 0;
-
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 1rem;
-
     }
-
     .feature-list li {
-
       display: flex;
-
       align-items: center;
-
       color: var(--fg-muted);
-
       font-size: 0.95rem;
-
     }
-
     .icon-check {
-
       color: var(--accent);
-
       margin-right: 0.75rem;
-
       background: rgba(245, 158, 11, 0.1);
-
       width: 20px;
-
       height: 20px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       border-radius: 50%;
-
       font-size: 12px;
-
     }
-
-
 
     /* --- FAQ --- */
-
     .faq-grid {
-
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 2rem;
-
       margin-top: 2rem;
-
     }
-
     .faq-item h4 { color: #fff; margin-bottom: 0.5rem; }
 
-
-
     /* --- Footer --- */
-
     footer {
-
       padding: 4rem 0;
-
       text-align: center;
-
       color: var(--fg-muted);
-
       font-size: 0.9rem;
-
     }
-
     
-
     /* --- MOBILE OPTIMIZATION --- */
     @media (max-width: 768px) {
-      .container { padding: 0 1.25rem; } 
+      .container { padding: 0 1.25rem; }
       
-      /* Tighter Hero spacing */
       .hero { 
         grid-template-columns: 1fr; 
-        padding: 2rem 0 3rem 0; /* Less top padding brings content up */
+        padding: 3rem 0; 
         text-align: center;
-        gap: 1.5rem;
+        gap: 2rem;
+      }
+      
+      /* THIS FIXES THE OFF-CENTERING */
+      .hero-content {
+        margin: 0 auto;
+        width: 100%;
+      }
+      
+      /* Fixes buttons sticking to left */
+      .hero-cta {
+        justify-content: center;
+        margin-bottom: 1rem;
       }
 
-      /* Fix typography scaling */
-      h1 { 
-        font-size: 2rem !important; /* Reduced from 2.5rem to fit better */
-        line-height: 1.2;
-      }
-      
-      /* Target the hero description specifically to make it readable but compact */
-      .hero-content p {
-        font-size: 1rem !important;
-        margin: 1rem 0 1.5rem 0 !important;
-        padding: 0 0.5rem; /* Prevents text hitting the very edge */
-      }
-      
+      /* Reduce Font Sizes */
+      h1 { font-size: 2.25rem; } 
       h2 { font-size: 1.75rem; }
+      p { font-size: 1rem; }
       
-      /* Make stats smaller and flexible so they don't break layout */
+      /* Fix Stats Row */
       .hero-stats { 
         justify-content: center; 
-        flex-wrap: wrap; 
-        gap: 1rem; /* Tighter gap */
-        margin-top: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.05); /* Softer border */
+        flex-wrap: wrap;
+        gap: 1rem;
       }
-      
-      .stat strong { font-size: 1.1rem; } /* Scale down numbers */
-      .stat span { font-size: 0.75rem; }  /* Scale down labels */
+      .stat { min-width: 80px; } /* Ensures they don't squash */
 
-      /* Hide complex elements */
+      /* Hide Desktop Elements */
       .nav-links { display: none; }
       .code-window { display: none; } 
 
-      /* Stack the feature sections vertically */
+      /* Stack Features Vertically */
       .feature-split {
         grid-template-columns: 1fr !important;
         gap: 3rem !important;
@@ -544,353 +308,187 @@
       .feature-list { grid-template-columns: 1fr; }
       .faq-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     }
-
   </style>
-
 </head>
-
 <body>
 
-
-
   <nav>
-
     <div class="container nav-inner">
-
       <div style="font-weight:700; font-size:1.2rem; letter-spacing:-0.5px; color:#fff;">
-
         Cold<span style="color:var(--accent)">.</span>
-
       </div>
-
       <div class="nav-links">
-
         <a href="product.html">Platform</a>
-
         <a href="pricing.html">Pricing</a>
-
         <a href="docs.html">Documentation</a>
-
         <a href="mailto:partnerships@getcoldai.com" class="nav-cta">Request Access</a>
-
       </div>
-
     </div>
-
   </nav>
 
-
-
   <header class="container hero">
-
     <div class="hero-content">
-
       <div class="badge">API v2.0 Live</div>
-
       <h1>Agentic outbound</h1>
-
       <p style="margin: 1.5rem 0 2rem 0; font-size: 1.15rem;">
-
         Agentic LinkedIn-native outbound engine. 
-
         Inject sales psychology and intelligent outreach automation into your product with a single API call.
-
       </p>
-
       
-
-      <div style="display:flex; gap:1rem;">
-
+      <div class="hero-cta">
         <a href="mailto:partnerships@getcoldai.com" style="background:var(--fg); color:var(--bg); padding: 0.8rem 1.5rem; border-radius:6px; font-weight:600;">Get API Keys</a>
-
+        <a href="#docs" style="padding: 0.8rem 1.5rem; border:1px solid var(--border); border-radius:6px; font-weight:500; color:var(--fg-muted);">Main Site</a>
       </div>
-
-
 
       <div class="hero-stats">
-
         <div class="stat">
-
           <strong>4.7&times;</strong>
-
-          <span>Proven Reply Rate Increase</span>
-
+          <span>Reply Rate Lift</span>
         </div>
-
         <div class="stat">
-
           <strong>&lt;200ms</strong>
-
           <span>Latency</span>
-
         </div>
-
         <div class="stat">
-
           <strong>99.9%</strong>
-
           <span>Uptime</span>
-
         </div>
-
       </div>
-
     </div>
-
-
 
     <div class="code-window">
-
       <div class="code-header">
-
         <div class="dot red"></div>
-
         <div class="dot yellow"></div>
-
         <div class="dot green"></div>
-
       </div>
-
       <div class="code-body">
-
 <pre style="margin:0;">
-
 <span class="c-c">// Generate a hyper-personalised intro</span>
-
 <span class="c-k">const</span> response = <span class="c-k">await</span> cold.generate({
-
   <span class="c-f">profile</span>: <span class="c-s">"linkedin.com/in/vp-sales"</span>,
-
   <span class="c-f">offer</span>: <span class="c-s">"AI-driven lead scoring"</span>,
-
   <span class="c-f">tone</span>: <span class="c-s">"subtle_authority"</span>
-
 });
 
-
-
 <span class="c-c">// Returns context-aware messaging</span>
-
 console.log(response.message);
-
 <span class="c-c">/* "Noticed your work on CRM validation
-
 for revenue reporting. That mix of contract automation and
-
-revenue ops must give you a clear view of where data breaks
-
-in complex compliance setups..." 
-
+revenue ops must give you a clear view..." 
 */</span>
-
 </pre>
-
       </div>
-
     </div>
-
   </header>
 
-
-
   <main>
-
     <section class="section">
-
       <div class="container">
-
         <h2>Built on behavioural science.<br><span style="color:var(--fg-muted)">Executed by AI agents.</span></h2>
-
         <div class="grid-3">
-
           <div class="card">
-
             <h3>LinkedIn-Native Context</h3>
-
             <p>Cold AI doesn't scrape names and send vague fake-personalization. We analyse current activity, sales signals, relevant pain points, and review activity to construct a psychological profile of the prospect before writing a single word.</p>
-
           </div>
-
           <div class="card">
-
             <h3>Anti-Template Engine</h3>
-
             <p>Templates get ignored. Cold generates unique messages tailored to the specific recipient.</p>
-
           </div>
-
           <div class="card">
-
             <h3>Headless & White-label</h3>
-
             <p>Your UI, powered by Cold API. Embed Cold directly into your SaaS platform, CRM, browser extension, or internal growth tools.</p>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-
-
     <section class="section">
-
       <div class="container">
-
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4rem; align-items:center;">
-
+        <div class="feature-split">
           <div>
-
             <h2>Complete control over<br>voice, message length and more</h2>
-
             <p>Teach Cold AI about your preferences. Cold AI learns from every interaction.</p>
-
             <ul class="feature-list" style="margin-top:2rem;">
-
               <li><span class="icon-check">✓</span> URL-to-Message Generation</li>
-
               <li><span class="icon-check">✓</span> Tone & Persona calibration</li>
-
               <li><span class="icon-check">✓</span> Safety & Compliance Filters</li>
-
             </ul>
-
           </div>
-
           <div style="background: radial-gradient(circle, #1e293b 0%, transparent 70%); border-radius: 20px; padding: 2rem; border: 1px solid var(--border);">
-
             <div style="color:var(--accent); font-family:monospace; margin-bottom:1rem;">> POST /v1/campaigns/start</div>
-
-            <div style="background:var(--bg); padding:1rem; border-radius:8px; border:1px solid var(--border); color:var(--fg-muted); font-size:0.9rem;">
-
+            <div style="background:var(--bg); padding:1rem; border-radius:8px; border:1px solid var(--border); color:var(--fg-muted); font-size:0.9rem; overflow-x:auto;">
               {<br>
-
               &nbsp;&nbsp;"status": "active",<br>
-
               &nbsp;&nbsp;"prospects_queued": 1420,<br>
-
               &nbsp;&nbsp;"psych_framework": "problem_agitation",<br>
-
               &nbsp;&nbsp;"predicted_reply_rate": "14.2%"<br>
-
               }
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
-
-
 
     <section class="section">
-
       <div class="container">
-
         <h2 style="text-align:center; margin-bottom:3rem;">Who builds on Cold?</h2>
-
         <div class="grid-3">
-
           <div class="card">
-
             <h4 style="color:var(--accent)">Sales Platforms</h4>
-
             <p>Add "AI message generation" to your platform or product.</p>
-
           </div>
-
-    
-
+          <div class="card">
+             <h4 style="color:var(--accent)">Agencies</h4>
+             <p>Scale high-touch outreach without hiring more SDRs.</p>
+          </div>
+          <div class="card">
+            <h4 style="color:var(--accent)">Growth Teams</h4>
+            <p>Automate outbound based on product usage signals.</p>
+          </div>
+        </div>
+      </div>
     </section>
-
-
 
     <section class="section" id="faq">
-
       <div class="container">
-
         <h2>FAQ</h2>
-
         <div class="faq-grid">
-
           <div class="faq-item">
-
             <h4>Why not just use ChatGPT?</h4>
-
             <p>ChatGPT cannot scrape Linkedin profiles. Context window limitations and lack of live data. Cold securely injects LinkedIn social graph data that standard LLMs cannot access, resulting in messages that actually reference real activity. No hallucinations.</p>
-
           </div>
-
           <div class="faq-item">
-
             <h4>Is it GDPR/CCPA compliant?</h4>
-
             <p>Yes. We do not store prospect data longer than the transaction requires. All generation happens in transient, encrypted containers.</p>
-
           </div>
-
           <div class="faq-item">
-
             <h4>How do I get an API key?</h4>
-
             <p>Please email support@getcoldai.com</p>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
-
-
 
     <section class="section" style="border-bottom:none;">
-
       <div class="container" style="text-align:center; max-width:700px;">
-
         <h2>Ready to integrate?</h2>
-
         <p style="margin-bottom:2rem;">Join the platforms using Cold to power millions of conversations.</p>
-
         <a href="mailto:partnerships@getcoldai.com" style="background:var(--fg); color:var(--bg); padding: 1rem 2rem; border-radius:6px; font-weight:600; font-size:1.1rem; display:inline-block;">Request Access</a>
-
       </div>
-
     </section>
-
   </main>
 
-
-
   <footer>
-
     <div class="container">
-
       <p>&copy; 2026 Cold AI Ltd. London, UK. All rights reserved.</p>
-
       <div style="margin-top:1rem; font-size:0.8rem;">
-
         <a href="#" style="color:var(--fg-muted); margin:0 10px;">Privacy</a>
-
         <a href="#" style="color:var(--fg-muted); margin:0 10px;">Terms</a>
-
         <a href="#" style="color:var(--fg-muted); margin:0 10px;">Status</a>
-
       </div>
-
     </div>
-
   </footer>
 
-
-
 </body>
-
 </html>
