@@ -358,14 +358,14 @@
 <pre style="margin:0;">
 <span class="c-c">// Generate a hyper-personalised intro</span>
 <span class="c-k">const</span> response = <span class="c-k">await</span> cold.generate({
-  <span class="c-f">profile</span>: <span class="c-s">"linkedin.com/in/vp-sales"</span>,
+  <span class="c-f">profile</span>: <span class="c-s">"linkedin.com/in/example"</span>,
   <span class="c-f">offer</span>: <span class="c-s">"AI-driven lead scoring"</span>,
-  <span class="c-f">tone</span>: <span class="c-s">"subtle_authority"</span>
+  <span class="c-f">tone</span>: <span class="c-s">"clear_conversational"</span>
 });
 
 <span class="c-c">// Returns context-aware messaging</span>
 console.log(response.message);
-<span class="c-c">/* "Noticed your work on CRM validation
+<span class="c-c">/* "Hey Daniel, noticed your work on CRM validation
 for revenue reporting. That mix of contract automation and
 revenue ops must give you a clear view..." 
 */</span>
@@ -381,7 +381,7 @@ revenue ops must give you a clear view..."
         <div class="grid-3">
           <div class="card">
             <h3>LinkedIn-Native Context</h3>
-            <p>Cold AI doesn't scrape names and send vague fake-personalization. We analyse current activity, sales signals, relevant pain points, and review activity to construct a psychological profile of the prospect before writing a single word.</p>
+            <p>Cold AI doesn't scrape names and send vague, fake personalization. We analyse each prospect profile for current activity, sales signals, and relevant pain points to construct a psychological profile of the prospect before writing a single word.</p>
           </div>
           <div class="card">
             <h3>Agentic AI</h3>
