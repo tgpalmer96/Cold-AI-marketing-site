@@ -1,106 +1,284 @@
-<!doctype html>
-<html lang="en-GB">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Cold API · Cold AI</title>
-  <meta name="description" content="Cold AI Pricing. Free, Pro, and Team tiers.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
- <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<meta name="theme-color" content="#050505">
- <title>Cold API | Agentic Outbound Infrastructure</title>
-<meta name="description" content="Programmatic access to Cold’s agentic outbound system for platforms, agencies, and growth teams." />
-<meta name="robots" content="noindex, nofollow">
-  </script>
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cold API – AI Prospecting Infrastructure</title>
+  <meta name="description" content="Programmatic access to Cold’s LinkedIn‑native outbound engine. Built for developers, growth teams, and platforms embedding true AI prospecting.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <style>
-    /* Local override for price tag to make it pop */
-    .price-tag { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .price-sub { font-size: 16px; font-weight: 400; color: #64748b; }
-    .plan-list { padding-left: 0; list-style: none; margin: 0; color: #94a3b8; }
-    .plan-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
-    .plan-list li::before { content: "✓"; color: #FF9800; margin-right: 12px; font-weight: bold; }
+    :root {
+      --bg: #0b0d14;
+      --fg: #f5f5f5;
+      --accent: #f59e0b;
+      --card-bg: #111a2b;
+      --card-border: #1f2a3b;
+      --muted: #94a3b8;
+      --pattern-dark: rgba(255,255,255,0.03);
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      /* subtle geometric pattern */
+      background-image: repeating-linear-gradient(45deg,var(--bg) 0,var(--bg) 12px,var(--pattern-dark) 12px,var(--pattern-dark) 24px);
+    }
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+    nav a {
+      color: var(--muted);
+      margin-right: 1.2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    header.hero {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg,#0a0a0a 0%,#1f2937 100%);
+      border-bottom: 1px solid var(--card-border);
+    }
+    header.hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+    header.hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    code, pre {
+      background: #111827;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+    }
+    .faq {
+      margin-top: 2rem;
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+    .faq-item h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    @media (max-width:640px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin-right: 0.8rem;
+        margin-top: 0.4rem;
+      }
+    }
   </style>
 </head>
 <body>
-
   <div class="container">
     <nav>
-      <a href="index.html">Home</a>
-      <a href="product.html">Product</a>
-      <a href="pricing.html" class="active">Pricing</a>
-      <a href="blog.html">Blog</a>
-      <a href="faq.html">FAQ</a>
-      <a href="about.html">About</a>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+      </div>
     </nav>
-<main>
-  <section class="hero">
-    <h1>Cold API</h1>
-    <p class="subtitle">
-      Programmatic access to Cold’s agentic outbound system.
-      Built for platforms, agencies, and teams who want to embed AI-driven prospecting into their own products.
-    </p>
-  </section>
+    <header class="hero">
+      <h1>Cold API</h1>
+      <p>Programmatic access to Cold’s LinkedIn‑native outbound engine. Build, personalise and orchestrate outreach directly from your own systems.</p>
+      <p style="margin-top:1rem;color:var(--muted);font-size:0.9rem;">Built by sales psychologists and PhD researchers. Teams using Cold API see up to a <strong>4.7× higher reply rate</strong> compared with generic sequences.</p>
+    </header>
+    <main>
+      <section class="section" id="overview">
+        <h2>Why Cold API?</h2>
+        <p>Cold API is your direct path to Cold’s outbound intelligence layer. Instead of logging into the Cold web app, call our API to generate and orchestrate outreach directly inside your workflows. Our agents analyse LinkedIn profiles and your product or service, then apply sales psychology to craft context‑aware messages.</p>
+        <div class="cards">
+          <div class="card">
+            <h3>LinkedIn‑Driven Personalisation</h3>
+            <p>Cold reads your prospect’s recent posts, interests and career history on LinkedIn. It then ties your product or service to those insights for a truly bespoke opener.</p>
+          </div>
+          <div class="card">
+            <h3>Programmatic Prospecting</h3>
+            <p>Run research, summarisation and segmentation programmatically. Supply just a LinkedIn URL and a short description of your offering; Cold synthesises the rest.</p>
+          </div>
+          <div class="card">
+            <h3>No UI Dependencies</h3>
+            <p>Embed Cold intelligence inside CRMs, sales tools or growth pipelines. Everything happens via API calls—perfect for automation and multi‑tenant environments.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="capabilities">
+        <h2>Capabilities</h2>
+        <ul class="plan-list">
+          <li>Generate one‑to‑one messages (email, LinkedIn) based on real LinkedIn profiles</li>
+          <li>Run research on prospects to extract posts, interests and career highlights</li>
+          <li>Tie your product or service to the prospect’s context using sales‑psychology prompts</li>
+          <li>Trigger messaging from your own systems and events via webhooks</li>
+          <li>Control tone, narrative structure and compliance via parameters</li>
+        </ul>
+      </section>
+      <section class="section" id="who">
+        <h2>Who It’s For</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Platform Builders</h3>
+            <p>Integrate Cold into your SaaS platform to add LinkedIn‑driven outbound intelligence without reinventing the wheel.</p>
+          </div>
+          <div class="card">
+            <h3>Agencies</h3>
+            <p>Run multi‑client campaigns with full control over messaging, brand voice and safety. Scale without sacrificing quality.</p>
+          </div>
+          <div class="card">
+            <h3>Growth Teams</h3>
+            <p>Automate prospecting and message generation in your internal stack, from first touch to follow‑up, across the entire org.</p>
+          </div>
+          <div class="card">
+            <h3>Developers</h3>
+            <p>Get infrastructure, not dashboards. Compose Cold with your own data sources and logic via API calls.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="quickstart">
+        <h2>Quick Start</h2>
+        <p>Once you have an API key, call our endpoint with a LinkedIn profile URL and a concise description of your offering. Cold returns a tailored opening message you can send immediately.</p>
+        <pre><code>// Request
+POST /v1/messages
+{
+  "profile_url": "https://www.linkedin.com/in/daniel-example",
+  "product": "AI prospecting platform for climate‑tech founders",
+  "sender": {
+    "name": "Sarah",
+    "company": "Your Company",
+    "voice": "friendly"
+  },
+  "tone": "warm",
+  "channel": "linkedin"
+}
 
-  <section>
-    <h2>What the Cold API Is</h2>
-    <p>
-      The Cold API gives you direct access to Cold’s outbound intelligence layer.
-      Instead of logging into the Cold UI, you can call Cold programmatically to generate, personalise, and orchestrate outbound activity inside your own workflows.
-    </p>
-    <p>
-      This is designed for teams building sales platforms, AI products, internal growth systems, or managed outbound services.
-    </p>
-  </section>
-
-  <section>
-    <h2>What You Can Do With It</h2>
-    <ul class="plan-list">
-      <li>Generate personalised outbound messages at scale</li>
-      <li>Run agentic prospect research programmatically</li>
-      <li>Trigger messaging from your own systems and events</li>
-      <li>Embed Cold inside CRMs, sales tools, or internal pipelines</li>
-      <li>Control tone, constraints, safety rules, and context via API</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Who It’s For</h2>
-    <ul class="plan-list">
-      <li>B2B SaaS platforms embedding outbound AI</li>
-      <li>Agencies running outbound for multiple clients</li>
-      <li>Growth teams building internal prospecting systems</li>
-      <li>Developers who want infrastructure, not dashboards</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>How It’s Different From the Cold App</h2>
-    <p>
-      The Cold web app is designed for individual users and small teams.
-      The API is designed for scale, control, and integration.
-    </p>
-    <ul class="plan-list">
-      <li>No UI dependency</li>
-      <li>Programmatic control over prompts and logic</li>
-      <li>Multi-tenant and client-aware usage</li>
-      <li>Designed for automation and orchestration</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Access & Availability</h2>
-    <p>
-      Cold API access is currently available to approved partners.
-      Pricing, rate limits, and usage models depend on volume and use case.
-    </p>
-    <p>
-      If you’re building something serious and want to embed Cold properly,
-      this is the correct entry point.
-    </p>
-  </section>
-</main>
+// Response
+{
+  "message": "Hi Daniel, I really enjoyed your recent post on sustainable supply chains.  At Your Company we help climate‑tech leaders like yourself turn more connections into customers.  Would it make sense to explore how our AI prospecting platform could support your mission?"
+}
+</code></pre>
+      </section>
+      <section class="section" id="differences">
+        <h2>Why Not the App?</h2>
+        <p>The Cold web app is designed for individuals and small teams who prefer a ready‑made workspace. The API is for builders who want control and scale. With the API you get:</p>
+        <ul class="plan-list">
+          <li>No UI dependency – embed intelligence anywhere</li>
+          <li>Fine‑grained control over tone, voice and narrative logic</li>
+          <li>Multi‑tenant usage with per‑client keys and usage tracking</li>
+          <li>Integration hooks for research → messaging → follow‑up flows</li>
+        </ul>
+      </section>
+      <section class="section" id="faq">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h4>How do I get access?</h4>
+            <p>Cold API is currently invite‑only for approved partners. To request access, email <a href="mailto:partnerships@getcoldai.com" style="color:var(--accent);text-decoration:none;">partnerships@getcoldai.com</a> with a description of your use case.</p>
+          </div>
+          <div class="faq-item">
+            <h4>What makes Cold different from ChatGPT or Gemini?</h4>
+            <p>Large language models are great at general tasks, but they can’t scan LinkedIn profiles due to platform privacy policies:contentReference[oaicite:1]{index=1}. Cold integrates with LinkedIn compliantly to read posts, interests and career history. We combine that with a summary of your product to craft messages that feel truly personal.</p>
+          </div>
+          <div class="faq-item">
+            <h4>What data do I need to send?</h4>
+            <p>All you need is a LinkedIn profile URL and a short description of what you offer. You can optionally include tone and voice parameters. Cold’s agent does the research and synthesis for you.</p>
+          </div>
+          <div class="faq-item">
+            <h4>How do you achieve a 4.7× reply rate?</h4>
+            <p>By using real context. Cold messages reference what the prospect cares about and tie it back to your offer. Our sales‑psychology frameworks were developed with experienced sellers and PhD‑level researchers, driving a measured 4.7 × increase in reply rate across customers.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Can I edit or iterate on the outputs?</h4>
+            <p>Yes. Cold returns clear JSON messages you can review, tweak or feed back into the API for refinement. You can also use our app’s conversation mode to chat with the agent for more creative drafts or LinkedIn post writing.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Is my data secure?</h4>
+            <p>Your data is encrypted in transit and at rest. We never sell or share prospect information. Enterprise customers can request additional privacy controls.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Can I control the tone and brand voice?</h4>
+            <p>Absolutely. Each call lets you specify tone (warm, professional, bold, etc.) and voice (e.g. consultative, visionary). You can also provide your own style prompts to align with your brand.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="get-started">
+        <h2>Get In Touch</h2>
+        <p>If you’d like to explore integrating Cold into your product or workflow, drop us a note at <a href="mailto:partnerships@getcoldai.com" style="color:var(--accent);text-decoration:none;">partnerships@getcoldai.com</a>. We’ll share access details and answer any questions.</p>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 Cold AI. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
