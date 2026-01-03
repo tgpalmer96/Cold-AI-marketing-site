@@ -50,6 +50,111 @@
     ]
   }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #030712; --bg-surface: #0f172a; --fg: #f8fafc; --fg-muted: #94a3b8;
+      --border: #1e293b; --accent: #f59e0b; --radius: 12px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Base Reset & Premium Background */
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg) 50%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
+    a { text-decoration: none; transition: 0.2s; }
+
+    /* Nav: Glassmorphism & Center Align */
+    nav {
+      display: flex; justify-content: center; padding: 1.5rem 0;
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 2rem;
+    }
+    nav a { color: var(--fg-muted); margin: 0 1rem; font-weight: 500; font-size: 0.95rem; }
+    nav a:hover, nav a.active { color: #fff; }
+
+    /* LAYOUT ENGINE: Desktop Grid / Mobile Stack */
+    main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Creates the 3-column row for cards */
+      gap: 1.5rem;
+      padding-bottom: 6rem;
+    }
+
+    /* Hero spans full width */
+    .hero {
+      grid-column: 1 / -1; 
+      text-align: center;
+      padding: 6rem 0 4rem 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Hero Typography */
+    .hero h1 { font-size: 4rem; font-weight: 700; line-height: 1.1; color: #fff; margin-bottom: 1rem; }
+    .gold-text {
+      color: var(--accent);
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;
+    }
+    .lead { font-size: 1.25rem; color: var(--fg-muted); margin-bottom: 2.5rem; }
+
+    /* Premium Form Styling */
+    .email-capture-wrapper { max-width: 450px; margin: 0 auto; }
+    .email-capture {
+      display: flex; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      padding: 6px; border-radius: 100px; transition: border-color 0.2s;
+    }
+    .email-capture:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .email-input {
+      flex: 1; background: transparent; border: none; padding: 0 1.5rem;
+      font-size: 1rem; color: #fff; outline: none; font-family: var(--font-sans);
+    }
+    .submit-btn {
+      background: #fff; color: #000; border: none; padding: 0.8rem 1.5rem;
+      border-radius: 100px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font-sans);
+    }
+    .submit-btn:hover { background: var(--accent); color: #fff; }
+
+    /* Card Styling */
+    .card {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: #334155; }
+    .card h2 { color: #fff; font-size: 1.25rem; margin: 0 0 1rem 0; }
+    .card p { color: var(--fg-muted); margin: 0; font-size: 0.95rem; line-height: 1.6; }
+
+    /* Mobile: Keep your existing layout perfect */
+    @media (max-width: 768px) {
+      main { display: block; } /* Disables grid, forces stack */
+      .hero { padding: 3rem 0; }
+      .hero h1 { font-size: 2.5rem; }
+      .card { margin-bottom: 1.5rem; }
+      
+      /* Stack form on mobile */
+      .email-capture { flex-direction: column; background: transparent; border: none; padding: 0; gap: 10px; }
+      .email-input { background: var(--bg-surface); border: 1px solid var(--border); padding: 1rem; border-radius: 8px; width: 100%; text-align: center; }
+      .submit-btn { width: 100%; padding: 1rem; border-radius: 8px; }
+      
+      nav { justify-content: flex-start; overflow-x: auto; padding-left: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
