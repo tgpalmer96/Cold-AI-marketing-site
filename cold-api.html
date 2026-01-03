@@ -491,24 +491,58 @@
 
     
 
-    /* --- Mobile --- */
-
+    /* --- MOBILE OPTIMIZATION --- */
     @media (max-width: 768px) {
+      .container { padding: 0 1.25rem; } 
+      
+      /* Tighter Hero spacing */
+      .hero { 
+        grid-template-columns: 1fr; 
+        padding: 2rem 0 3rem 0; /* Less top padding brings content up */
+        text-align: center;
+        gap: 1.5rem;
+      }
 
-      .hero { grid-template-columns: 1fr; padding: 3rem 0; text-align: center; }
+      /* Fix typography scaling */
+      h1 { 
+        font-size: 2rem !important; /* Reduced from 2.5rem to fit better */
+        line-height: 1.2;
+      }
+      
+      /* Target the hero description specifically to make it readable but compact */
+      .hero-content p {
+        font-size: 1rem !important;
+        margin: 1rem 0 1.5rem 0 !important;
+        padding: 0 0.5rem; /* Prevents text hitting the very edge */
+      }
+      
+      h2 { font-size: 1.75rem; }
+      
+      /* Make stats smaller and flexible so they don't break layout */
+      .hero-stats { 
+        justify-content: center; 
+        flex-wrap: wrap; 
+        gap: 1rem; /* Tighter gap */
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.05); /* Softer border */
+      }
+      
+      .stat strong { font-size: 1.1rem; } /* Scale down numbers */
+      .stat span { font-size: 0.75rem; }  /* Scale down labels */
 
-      .hero-stats { justify-content: center; }
+      /* Hide complex elements */
+      .nav-links { display: none; }
+      .code-window { display: none; } 
 
-      .nav-links { display: none; } /* Simplified for demo */
-
-      .code-window { display: none; } /* Hide heavy code on mobile or adjust */
-
-      h1 { font-size: 2.5rem; }
-
+      /* Stack the feature sections vertically */
+      .feature-split {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+      }
+      
+      .section { padding: 3rem 0; }
       .feature-list { grid-template-columns: 1fr; }
-
-      .faq-grid { grid-template-columns: 1fr; }
-
+      .faq-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     }
 
   </style>
