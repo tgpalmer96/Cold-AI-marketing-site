@@ -1,30 +1,513 @@
-<!doctype html>
-<html lang="en-GB">
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('lAxoEaKlmR08OYGd'); </script>
   <meta charset="utf-8">
-  <title>Cold AI</title>
-  <meta name="description" content="Intelligent outbound. Autonomous revenue infrastructure. Personalized outreach at scale.">
+  <title>Cold AI — Quality, not volume</title>
+  <meta name="description" content="Programmatically generate personalised outreach messages for LinkedIn prospects. Every message researched, relevant, and respectful.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<meta name="theme-color" content="#050505">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+  
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://getcoldai.com/">
-  <meta property="og:title" content="Cold AI · Intelligent Outbound Infrastructure">
-  <meta property="og:description" content="Autonomous agentic workflows for B2B revenue teams. Scale personalized outreach with human-in-the-loop control.">
+  <meta property="og:title" content="Cold AI — Quality, not volume">
+  <meta property="og:description" content="Programmatically generate personalised outreach messages for LinkedIn prospects.">
   <meta property="og:image" content="https://getcoldai.com/social-preview.png">
-
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://getcoldai.com/">
-  <meta property="twitter:title" content="Cold AI · Intelligent Outbound Infrastructure">
-  <meta property="twitter:description" content="Autonomous agentic workflows for B2B revenue teams. Scale personalized outreach with human-in-the-loop control.">
-  <meta property="twitter:image" content="https://getcoldai.com/social-preview.png">
-
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-50: #fafafa;
+      --gray-100: #f4f4f5;
+      --gray-200: #e4e4e7;
+      --gray-400: #a1a1aa;
+      --gray-500: #71717a;
+      --gray-600: #52525b;
+      --gray-800: #27272a;
+      --gray-900: #18181b;
+      --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'IBM Plex Mono', 'SF Mono', Monaco, monospace;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+    
+    ::selection {
+      background: var(--gray-900);
+      color: var(--white);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 680px;
+    }
+    
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.2s forwards;
+    }
+    
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.4s forwards;
+    }
+    
+    .hero-text {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      font-weight: 400;
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.6s forwards;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Buttons */
+    .button-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.8s forwards;
+    }
+    
+    .btn {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: var(--gray-900);
+      color: var(--white);
+      border: 1px solid var(--gray-900);
+    }
+    
+    .btn-primary:hover {
+      background: var(--black);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--gray-800);
+      border: 1px solid var(--gray-200);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--gray-400);
+      background: var(--gray-50);
+    }
+    
+    .btn svg {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .base-url {
+      margin-top: 32px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--gray-400);
+      opacity: 0;
+      animation: fadeIn 1s ease 1s forwards;
+    }
+    
+    .base-url code {
+      background: var(--gray-100);
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-left: 8px;
+      color: var(--gray-600);
+    }
+    
+    /* Philosophy Section */
+    .philosophy {
+      padding: 160px 24px;
+      background: var(--gray-50);
+    }
+    
+    .philosophy-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    
+    .philosophy h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 40px;
+    }
+    
+    .philosophy p {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    
+    .philosophy p:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    .philosophy strong {
+      color: var(--gray-800);
+      font-weight: 500;
+    }
+    
+    /* What It Does Section */
+    .what-section {
+      padding: 160px 24px;
+      background: var(--white);
+    }
+    
+    .what-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      max-width: 560px;
+      margin-bottom: 80px;
+    }
+    
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 16px;
+    }
+    
+    .section-header h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--black);
+    }
+    
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px 80px;
+    }
+    
+    .capability h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    
+    .capability p {
+      font-size: 1rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+    
+    /* Code Section */
+    .code-section {
+      padding: 160px 24px;
+      background: var(--gray-900);
+      color: var(--white);
+    }
+    
+    .code-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
+      align-items: center;
+    }
+    
+    .code-content .section-label {
+      color: var(--gray-500);
+    }
+    
+    .code-content h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    
+    .code-content p {
+      font-size: 1.0625rem;
+      color: var(--gray-400);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    
+    .code-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    
+    .code-link:hover {
+      gap: 12px;
+    }
+    
+    .code-link svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .code-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 32px;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+    
+    .code-block .comment { color: rgba(255, 255, 255, 0.35); }
+    .code-block .keyword { color: #c792ea; }
+    .code-block .string { color: #c3e88d; }
+    .code-block .function { color: #82aaff; }
+    .code-block .property { color: #f78c6c; }
+    
+    /* CTA Section */
+    .cta {
+      padding: 200px 24px;
+      text-align: center;
+      background: var(--white);
+    }
+    
+    .cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 24px;
+      line-height: 1.15;
+    }
+    
+    .cta p {
+      font-size: 1.1875rem;
+      color: var(--gray-500);
+      margin-bottom: 40px;
+    }
+    
+    .email-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .email-input {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      width: 280px;
+      padding: 16px 20px;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--gray-800);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    .email-input::placeholder {
+      color: var(--gray-400);
+    }
+    
+    .email-input:focus {
+      border-color: var(--gray-400);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-submit {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 16px 32px;
+      background: var(--gray-900);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .form-submit:hover {
+      background: var(--black);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 48px 24px;
+      border-top: 1px solid var(--gray-100);
+    }
+    
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-left {
+      font-size: 0.875rem;
+      color: var(--gray-400);
+    }
+    
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--gray-800);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .capabilities {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      
+      .code-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      
+      .email-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .email-input {
+        width: 100%;
+        max-width: 320px;
+      }
+      
+      .form-submit {
+        width: 100%;
+        max-width: 320px;
+      }
+      
+      .button-group {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+      
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+    }
+  </style>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,128 +516,157 @@
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Cloud/SaaS",
     "url": "https://getcoldai.com",
-    "description": "Agentic AI infrastructure for autonomous B2B outbound revenue teams.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "GBP"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Cold AI",
-      "url": "https://getcoldai.com"
-    },
-    "featureList": "Autonomous prospect research, Multichannel sequencing, Human-in-the-loop compliance, AI email drafting",
-    "sameAs": [
-      "https://www.linkedin.com/company/cold-ai",
-      "https://twitter.com/cold_ai"
-    ]
+    "description": "Programmatically generate personalised outreach messages for LinkedIn prospects."
   }
   </script>
 </head>
 <body>
-
-  <div class="container">
-    <main>
-      <div class="hero">
-        <h1>
-         Cold AI<br>
-          <span class="gold-text">API</span>
-        </h1>
-        <p class="lead">
-          Programmatically generate personalised outreach messages for LinkedIn prospects.
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Cold AI API</p>
+        <h1>Quality, not volume.</h1>
+        <p class="hero-text">
+          Programmatically generate personalised outreach messages for LinkedIn prospects. Every message researched. Every message relevant.
         </p>
-        <div class="email-capture-wrapper">
-          <form action="https://formspree.io/f/xwpgnqno" method="POST" class="email-capture">
-            <input type="email" name="email" class="email-input" placeholder="work@company.com" required>
-            <button type="submit" class="submit-btn">Start free trial</button>
-          </form>
+        <div class="button-group">
+          <a href="https://formspree.io/f/xwpgnqno" class="btn btn-primary">Start free trial</a>
+          <a href="https://docs.coldai.uk/api/overview" target="_blank" rel="noopener" class="btn btn-secondary">
+            View docs
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
         </div>
-        <a
-              href="https://docs.coldai.uk/api/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="submit-btn"
-              style="background: transparent; border: 1px solid rgba(255,255,255,0.18); color: #fff; margin-left: 10px;"
-            >
-              View docs
-            </a>
-          </form>
-
-          <p style="margin-top: 12px; opacity: 0.75; font-size: 14px;">
-            Base URL:
-            <code style="background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12);">
-              https://api.coldai.uk/functions/v1
-            </code>
-          </p>
-        </div>
+        <p class="base-url">
+          Base URL<code>api.coldai.uk/functions/v1</code>
+        </p>
       </div>
+    </section>
 
-      <div class="card">
-        <h2>What is the Cold AI API?</h2>
+    <section class="philosophy">
+      <div class="philosophy-inner">
+        <h2>Communication as a deliberate act, not an automated one.</h2>
         <p>
-          The Cold AI API allows you to programmatically generate personalised outreach messages for LinkedIn prospects.
-          The API uses AI to:
+          Most outreach tools optimise for volume. Send thousands, hope tens respond. That approach is broken. Not just ethically, but strategically.
         </p>
-        <ul style="margin: 12px 0 0 18px; opacity: 0.85;">
-          <li>Research your user profile and value proposition</li>
-          <li>Analyse LinkedIn prospects</li>
-          <li>Generate personalised, contextually relevant messages</li>
-          <li>Apply proven outreach methodologies</li>
-        </ul>
+        <p>
+          <strong>Cold AI is different.</strong> We ensure that when a message exists, it's justified. Signals and context first. Research before reach.
+        </p>
+        <p>
+          The system won't generate until it understands what you're selling, who you're selling to, and why this specific person would care. No templates. No variables. Just messages that could only be sent to one person.
+        </p>
       </div>
+    </section>
 
-      <div class="card">
-        <h2>Key Features</h2>
-
-        <h3 style="margin: 18px 0 6px;">End-to-End Endpoint</h3>
-        <p>Single API call to research a prospect and generate a personalised message. Perfect for simple integrations.</p>
-
-        <h3 style="margin: 18px 0 6px;">Idempotent Requests</h3>
-        <p>Safe retries with idempotency keys. Duplicate requests return cached results without extra charges.</p>
-
-        <h3 style="margin: 18px 0 6px;">Webhook Notifications</h3>
-        <p>Get notified when users connect, LinkedIn auth completes, or long-running operations finish.</p>
-
-        <h3 style="margin: 18px 0 6px;">User Management API</h3>
-        <p>Programmatically add, suspend, unsuspend, migrate, and disconnect users from your API keys.</p>
+    <section class="what-section">
+      <div class="what-inner">
+        <div class="section-header">
+          <p class="section-label">What the API does</p>
+          <h2>Research your prospect. Generate a message. One call.</h2>
+        </div>
+        <div class="capabilities">
+          <div class="capability">
+            <h3>Research your profile</h3>
+            <p>The API analyses your user profile and value proposition to understand how you help your customers.</p>
+          </div>
+          <div class="capability">
+            <h3>Analyse prospects</h3>
+            <p>Deep research into each LinkedIn prospect. Their role, company, recent activity, and potential pain points.</p>
+          </div>
+          <div class="capability">
+            <h3>Generate messages</h3>
+            <p>Personalised, contextually relevant messages crafted specifically for each prospect. No templates or generic phrases.</p>
+          </div>
+          <div class="capability">
+            <h3>Proven methodologies</h3>
+            <p>Apply established outreach frameworks that respect the recipient while maximising relevance.</p>
+          </div>
+          <div class="capability">
+            <h3>Idempotent requests</h3>
+            <p>Safe retries with idempotency keys. Duplicate requests return cached results without extra charges.</p>
+          </div>
+          <div class="capability">
+            <h3>Webhook notifications</h3>
+            <p>Get notified when users connect, LinkedIn auth completes, or long-running operations finish.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h2>Deep Research</h2>
-        <p>Cold AI deploys agents that research and analyze your prospect's LinkedIn profile to understand who they are and what their specific pain points are.</p>
-      </div>
+    <section class="code-section">
+      <div class="code-inner">
+        <div class="code-content">
+          <p class="section-label">End-to-end endpoint</p>
+          <h2>Single API call. Research and generate in one request.</h2>
+          <p>
+            Perfect for simple integrations. Pass a LinkedIn profile URL, receive a researched, personalised message.
+          </p>
+          <a href="https://docs.coldai.uk/api/overview" target="_blank" rel="noopener" class="code-link">
+            Read the documentation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        <div class="code-block">
+<span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(
+  <span class="string">'https://api.coldai.uk/functions/v1/generate'</span>,
+  {
+    <span class="property">method</span>: <span class="string">'POST'</span>,
+    <span class="property">headers</span>: {
+      <span class="string">'Authorization'</span>: <span class="string">`Bearer ${apiKey}`</span>,
+      <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>
+    },
+    <span class="property">body</span>: <span class="function">JSON.stringify</span>({
+      <span class="property">prospect_url</span>: <span class="string">'linkedin.com/in/...'</span>
+    })
+  }
+);
 
-      <div class="card">
-        <h2>Hyper-Personalization</h2>
-        <p>Our proprietary AI writes a unique, contextually relevant message for every single prospect. No templates or generic messaging.</p>
+<span class="keyword">const</span> { <span class="property">message</span> } = <span class="keyword">await</span> response.<span class="function">json</span>();
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h2>Safety First</h2>
-        <p>Cold AI is designed with LinkedIn compliance as a top priority. Our intelligent scheduler ensures your outreach stays within LinkedIn's guidelines, protecting your account while maximizing your results.</p>
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>Start building today.</h2>
+        <p>Free trial. No credit card required.</p>
+        <form action="https://formspree.io/f/xwpgnqno" method="POST" class="email-form">
+          <input type="email" name="email" class="email-input" placeholder="you@company.com" required>
+          <button type="submit" class="form-submit">Get API access</button>
+        </form>
       </div>
-    </main>
-  </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        © 2026 Cold AI
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/company/cold-ai-uk/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(ss,ex){ 
+      window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};
+      (function(d,s){ 
+        fs=d.getElementsByTagName(s)[0]; 
+        function ce(src){ 
+          var cs=d.createElement(s); 
+          cs.src=src; 
+          cs.async=1; 
+          fs.parentNode.insertBefore(cs,fs); 
+        }; 
+        ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); 
+      })(document,'script'); 
+    })('lAxoEaKlmR08OYGd');
+  </script>
 </body>
 </html>
-      </div>
-      
-      <div class="card">
-        <h2>Deep Research</h2>
-        <p>Cold AI deploys agents that research and analyze your prospect's LinkedIn profile to understand who they are and what their specific pain points are.</p>
-      </div>
-
-      <div class="card">
-        <h2>Hyper-Personalization</h2>
-        <p>Our proprietary AI writes a unique, contextually relevant message for every single prospect. No templates or generic messaging.</p>
-      </div>
-
-      <div class="card">
-        <h2>Safety First</h2>
-        <p>Cold AI is designed with LinkedIn compliance as a top priority. Our intelligent scheduler ensures your outreach stays within LinkedIn's guidelines, protecting your account while maximizing your results.</p>
-      </div>
-    </main>
-  </div>
-</body>
-</html>
+```
