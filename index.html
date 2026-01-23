@@ -25,20 +25,36 @@
   
   <style>
     :root {
-      --black: #000000;
-      --white: #ffffff;
-      --gray-50: #e4e4e7;
-      --gray-100: #a1a1aa;
-      --gray-200: #71717a;
-      --gray-400: #52525b;
-      --gray-500: #3f3f46;
-      --gray-600: #27272a;
-      --gray-800: #1a1f2e;
-      --gray-900: #0f1419;
-      --accent: #f5a623;
-      --accent-hover: #d4910f;
-      --card-bg: #1e2433;
-      --card-border: #2a3142;
+      /* Core dark palette - matched to Cold AI docs */
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-card: #1c2128;
+      --bg-card-hover: #21262d;
+      --bg-code: #0d1117;
+      
+      /* Borders */
+      --border-default: #30363d;
+      --border-muted: #21262d;
+      
+      /* Text hierarchy */
+      --text-primary: #f0f6fc;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --text-placeholder: #484f58;
+      
+      /* Accent - Cold AI gold */
+      --accent: #e3a835;
+      --accent-hover: #f0b840;
+      --accent-muted: rgba(227, 168, 53, 0.15);
+      
+      /* Syntax highlighting */
+      --syntax-keyword: #c792ea;
+      --syntax-string: #c3e88d;
+      --syntax-function: #82aaff;
+      --syntax-property: #f78c6c;
+      --syntax-comment: #6e7681;
+      
+      /* Fonts */
       --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'IBM Plex Mono', 'SF Mono', Monaco, monospace;
     }
@@ -58,16 +74,17 @@
     
     body {
       font-family: var(--font-sans);
-      background: var(--gray-900);
-      color: var(--gray-50);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
     
     ::selection {
       background: var(--accent);
-      color: var(--black);
+      color: var(--bg-primary);
     }
     
+    /* ==================== HERO ==================== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -77,6 +94,7 @@
       text-align: center;
       padding: 80px 24px;
       position: relative;
+      background: var(--bg-primary);
     }
     
     .hero-content {
@@ -89,7 +107,7 @@
       font-weight: 500;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--gray-500);
+      color: var(--accent);
       margin-bottom: 32px;
       opacity: 0;
       animation: fadeIn 1s ease 0.2s forwards;
@@ -100,7 +118,7 @@
       font-weight: 600;
       letter-spacing: -0.035em;
       line-height: 1.1;
-      color: var(--black);
+      color: var(--text-primary);
       margin-bottom: 32px;
       opacity: 0;
       animation: fadeIn 1s ease 0.4s forwards;
@@ -109,7 +127,7 @@
     .hero-text {
       font-size: clamp(1.125rem, 2vw, 1.375rem);
       font-weight: 400;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
       margin-bottom: 48px;
       opacity: 0;
@@ -127,6 +145,7 @@
       }
     }
     
+    /* ==================== BUTTONS ==================== */
     .button-group {
       display: flex;
       align-items: center;
@@ -152,26 +171,27 @@
     }
     
     .btn-primary {
-      background: var(--gray-900);
-      color: var(--white);
-      border: 1px solid var(--gray-900);
+      background: var(--accent);
+      color: var(--bg-primary);
+      border: 1px solid var(--accent);
     }
     
     .btn-primary:hover {
-      background: var(--black);
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 16px rgba(227, 168, 53, 0.25);
     }
     
     .btn-secondary {
       background: transparent;
-      color: var(--gray-800);
-      border: 1px solid var(--gray-200);
+      color: var(--text-primary);
+      border: 1px solid var(--border-default);
     }
     
     .btn-secondary:hover {
-      border-color: var(--gray-400);
-      background: var(--gray-50);
+      border-color: var(--text-secondary);
+      background: var(--bg-card);
     }
     
     .btn svg {
@@ -179,26 +199,29 @@
       height: 16px;
     }
     
+    /* ==================== BASE URL ==================== */
     .base-url {
       margin-top: 32px;
       font-family: var(--font-mono);
       font-size: 0.8125rem;
-      color: var(--gray-400);
+      color: var(--text-muted);
       opacity: 0;
       animation: fadeIn 1s ease 1s forwards;
     }
     
     .base-url code {
-      background: var(--gray-100);
-      padding: 6px 12px;
+      background: var(--bg-code);
+      border: 1px solid var(--border-default);
+      padding: 8px 14px;
       border-radius: 6px;
       margin-left: 8px;
-      color: var(--gray-600);
+      color: var(--accent);
     }
     
+    /* ==================== PHILOSOPHY ==================== */
     .philosophy {
       padding: 160px 24px;
-      background: var(--gray-50);
+      background: var(--bg-secondary);
     }
     
     .philosophy-inner {
@@ -211,13 +234,13 @@
       font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.2;
-      color: var(--black);
+      color: var(--text-primary);
       margin-bottom: 40px;
     }
     
     .philosophy p {
       font-size: 1.125rem;
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.75;
       margin-bottom: 24px;
     }
@@ -227,13 +250,14 @@
     }
     
     .philosophy strong {
-      color: var(--gray-800);
+      color: var(--text-primary);
       font-weight: 500;
     }
     
+    /* ==================== WHAT SECTION ==================== */
     .what-section {
       padding: 160px 24px;
-      background: var(--white);
+      background: var(--bg-primary);
     }
     
     .what-inner {
@@ -252,7 +276,7 @@
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gray-400);
+      color: var(--accent);
       margin-bottom: 16px;
     }
     
@@ -261,33 +285,47 @@
       font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.2;
-      color: var(--black);
+      color: var(--text-primary);
     }
     
+    /* ==================== CAPABILITIES / CARDS ==================== */
     .capabilities {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 64px 80px;
+      gap: 24px;
+    }
+    
+    .capability {
+      background: var(--bg-card);
+      border: 1px solid var(--border-muted);
+      border-radius: 12px;
+      padding: 32px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    
+    .capability:hover {
+      border-color: var(--border-default);
+      background: var(--bg-card-hover);
     }
     
     .capability h3 {
       font-size: 1.125rem;
       font-weight: 600;
-      color: var(--black);
+      color: var(--text-primary);
       margin-bottom: 12px;
       letter-spacing: -0.01em;
     }
     
     .capability p {
       font-size: 1rem;
-      color: var(--gray-500);
+      color: var(--text-secondary);
       line-height: 1.65;
     }
     
+    /* ==================== CODE SECTION ==================== */
     .code-section {
       padding: 160px 24px;
-      background: var(--gray-900);
-      color: var(--white);
+      background: var(--bg-secondary);
     }
     
     .code-inner {
@@ -300,7 +338,7 @@
     }
     
     .code-content .section-label {
-      color: var(--gray-500);
+      color: var(--accent);
     }
     
     .code-content h2 {
@@ -308,13 +346,13 @@
       font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.2;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 24px;
     }
     
     .code-content p {
       font-size: 1.0625rem;
-      color: var(--gray-400);
+      color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 32px;
     }
@@ -325,13 +363,14 @@
       gap: 8px;
       font-size: 1rem;
       font-weight: 500;
-      color: var(--white);
+      color: var(--accent);
       text-decoration: none;
-      transition: gap 0.2s;
+      transition: gap 0.2s, color 0.2s;
     }
     
     .code-link:hover {
       gap: 12px;
+      color: var(--accent-hover);
     }
     
     .code-link svg {
@@ -340,8 +379,8 @@
     }
     
     .code-block {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--bg-code);
+      border: 1px solid var(--border-default);
       border-radius: 12px;
       padding: 32px;
       font-family: var(--font-mono);
@@ -350,16 +389,17 @@
       overflow-x: auto;
     }
     
-    .code-block .comment { color: rgba(255, 255, 255, 0.35); }
-    .code-block .keyword { color: #c792ea; }
-    .code-block .string { color: #c3e88d; }
-    .code-block .function { color: #82aaff; }
-    .code-block .property { color: #f78c6c; }
+    .code-block .comment { color: var(--syntax-comment); }
+    .code-block .keyword { color: var(--syntax-keyword); }
+    .code-block .string { color: var(--syntax-string); }
+    .code-block .function { color: var(--syntax-function); }
+    .code-block .property { color: var(--syntax-property); }
     
+    /* ==================== CTA ==================== */
     .cta {
       padding: 200px 24px;
       text-align: center;
-      background: var(--white);
+      background: var(--bg-primary);
     }
     
     .cta-inner {
@@ -371,17 +411,18 @@
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--black);
+      color: var(--text-primary);
       margin-bottom: 24px;
       line-height: 1.15;
     }
     
     .cta p {
       font-size: 1.1875rem;
-      color: var(--gray-500);
+      color: var(--text-secondary);
       margin-bottom: 40px;
     }
     
+    /* ==================== FORM ==================== */
     .email-form {
       display: flex;
       gap: 12px;
@@ -394,21 +435,21 @@
       font-size: 1rem;
       width: 280px;
       padding: 16px 20px;
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border-default);
       border-radius: 8px;
-      background: var(--white);
-      color: var(--gray-800);
+      background: var(--bg-card);
+      color: var(--text-primary);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     
     .email-input::placeholder {
-      color: var(--gray-400);
+      color: var(--text-placeholder);
     }
     
     .email-input:focus {
-      border-color: var(--gray-400);
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-muted);
     }
     
     .form-submit {
@@ -416,8 +457,8 @@
       font-size: 1rem;
       font-weight: 500;
       padding: 16px 32px;
-      background: var(--gray-900);
-      color: var(--white);
+      background: var(--accent);
+      color: var(--bg-primary);
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -425,14 +466,16 @@
     }
     
     .form-submit:hover {
-      background: var(--black);
+      background: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 16px rgba(227, 168, 53, 0.25);
     }
     
+    /* ==================== FOOTER ==================== */
     footer {
       padding: 48px 24px;
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid var(--border-muted);
+      background: var(--bg-primary);
     }
     
     .footer-inner {
@@ -445,24 +488,25 @@
     
     .footer-left {
       font-size: 0.875rem;
-      color: var(--gray-400);
+      color: var(--text-muted);
     }
     
     .footer-links a {
       font-size: 0.875rem;
-      color: var(--gray-500);
+      color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.2s;
     }
     
     .footer-links a:hover {
-      color: var(--gray-800);
+      color: var(--accent);
     }
     
+    /* ==================== RESPONSIVE ==================== */
     @media (max-width: 768px) {
       .capabilities {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 16px;
       }
       
       .code-inner {
